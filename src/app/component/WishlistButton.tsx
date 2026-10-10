@@ -14,25 +14,24 @@ const WishlistButton = ({ book }: { book: IBook }) => {
   const handleWishlistBook = () => {
     if (isInWishlist) {
       toast.info(`"${book.bookName}" is already in your Wishlist!`, {
-        icon: 'ℹ️',
+        icon: <span>ℹ️</span>,
       });
       return;
     }
 
     setWishlist([...wishlist, book]);
-    toast.success(`"${book.bookName}" added to Wishlist!`, {
-      icon: '🔖',
+    toast.info(`"${book.bookName}" added to Wishlist!`, {
+      icon: <span>❤️</span>,
     });
   };
 
   return (
     <div>
       <button
-        className={`w-full py-3.5 px-6 font-semibold rounded-xl border transition-all text-center ${
-          isInWishlist
+        className={`w-full py-3.5 px-6 font-semibold rounded-xl border transition-all text-center ${isInWishlist
             ? 'bg-slate-800/50 text-slate-500 border-slate-800 cursor-not-allowed'
             : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-200 shadow-sm'
-        }`}
+          }`}
         onClick={handleWishlistBook}
         disabled={isInWishlist}
       >

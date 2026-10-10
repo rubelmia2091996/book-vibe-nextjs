@@ -14,15 +14,15 @@ const ReadBookButton = ({ book }: { book: IBook }) => {
   const handleReadBook = () => {
     if (isAlreadyRead) {
       toast.info(`"${book.bookName}" is already in your Read list!`, {
-        icon: 'ℹ️',
+       icon: <span>ℹ️</span>, 
       });
       return;
     }
 
     setReadBooks([...readBooks, book]);
     toast.success(`"${book.bookName}" added to Read Books!`, {
-      icon: '📚',
-    });
+  icon: <span>📚</span>, 
+});
   };
 
   return (
